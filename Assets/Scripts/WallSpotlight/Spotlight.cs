@@ -8,12 +8,17 @@ public class Spotlight : MonoBehaviour {
     [SerializeField]
     LayerMask layerMask;
 
+    [SerializeField]
+    private ColoredLight.LightColor lightColor;
+    private ColoredLight coloredLight;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        coloredLight = new ColoredLight(lightColor);
     }
 
-	void Update()
+	void FixedUpdate()
     {
         if (DebugManager.DebugModeOn)
         {
@@ -25,7 +30,11 @@ public class Spotlight : MonoBehaviour {
         RaycastHit hit = RaycastToPlayer();
         if (hit.collider)
         {
-            // do stuff
+            LightTriggerPad triggerPad = hit.collider.GetComponent<LightTriggerPad>();
+            if (triggerPad)
+            {
+                triggerPad.AcceptCharge(coloredLight);
+            }
         }
     }
 
@@ -36,6 +45,8 @@ public class Spotlight : MonoBehaviour {
         if (DebugManager.DebugModeOn)
         {
             Debug.DrawRay(transform.position, GetDirectionVectorToPlayer(), Color.yellow, 1);
+            Vector3 coneUp = Vector3.Lerp(GetDirectionVectorToPlayer(true), transform.up, (3f / 90f)) * 100;
+            Debug.DrawRay(transform.position, coneUp, Color.green, 0);
         }
         Ray ray = new Ray(transform.position, GetDirectionVectorToPlayer());
         RaycastHit raycastHit;
