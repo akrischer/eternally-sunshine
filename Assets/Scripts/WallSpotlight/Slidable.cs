@@ -51,7 +51,8 @@ public class Slidable : MonoBehaviour {
                 newPos = ClampVector(unclampedVector, Start, End);
                 break;
         }
-        transform.position = newPos;
+        //transform.position = newPos;
+        transform.parent.position = newPos;
     }   
 
     Vector3 ClampVector(Vector3 val, Vector3 min, Vector3 max)
