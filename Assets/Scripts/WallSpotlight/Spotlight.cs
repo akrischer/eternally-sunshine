@@ -25,7 +25,7 @@ public class Spotlight : MonoBehaviour {
         RaycastHit hit = RaycastToPlayer();
         if (hit.collider)
         {
-            Debug.Log(hit.collider.name);
+            // do stuff
         }
     }
 
