@@ -33,7 +33,7 @@ public class Spotlight : MonoBehaviour {
             LightTriggerPad triggerPad = hit.collider.GetComponent<LightTriggerPad>();
             if (triggerPad)
             {
-                triggerPad.AcceptCharge(coloredLight);
+                triggerPad.AcceptLight(coloredLight);
             }
         }
     }
