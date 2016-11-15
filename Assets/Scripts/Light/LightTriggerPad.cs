@@ -16,9 +16,19 @@ public class LightTriggerPad : MonoBehaviour {
     UnityEvent Unlocked;
     [SerializeField]
     List<ColoredLight.LightColor> acceptedColors; // what specific set of colors will trigger this pad?
+    [SerializeField]
+    float brightenTime = 1f;
 
     // A rolling list of what lights are currently on this pad
     List<ColoredLight.LightColor> lightsOnTriggerPad = new List<ColoredLight.LightColor>();
+
+    Renderer thisRenderer;
+    [SerializeField]
+    private Color startColor;
+    [SerializeField]
+    private Color brighterColor;
+    [SerializeField]
+    private Color currentColor;
 
 
     public List<ColoredLight.LightColor> AcceptedColors
@@ -45,6 +55,15 @@ public class LightTriggerPad : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        thisRenderer = GetComponent<Renderer>();
+        startColor = thisRenderer.material.color;
+        brighterColor = GetBrighterColor(startColor);
+        Debug.Log(brighterColor - startColor);
+        Debug.Log((brighterColor - startColor) / (brightenTime));
+    }
+
     void FixedUpdate()
     {
         if (!unlocked)
@@ -59,6 +78,26 @@ public class LightTriggerPad : MonoBehaviour {
         {
             AcceptChargeAmount(-decayPerTick);
         }
+
+        Color dColor = (brighterColor - startColor) / brightenTime * .02f;
+        if (IsBeingCharged())
+        {
+            Debug.Log("Im being charged");
+            if (IsColorBrighter(thisRenderer.material.color, brighterColor))
+            {
+                thisRenderer.material.color += dColor;
+            }
+            thisRenderer.material.SetColor("_EmissionColor", brighterColor);
+        }
+        else
+        {
+            if (IsColorBrighter(startColor, thisRenderer.material.color))
+            {
+                thisRenderer.material.color -= dColor;
+            }
+            thisRenderer.material.SetColor("_EmissionColor", Color.black);
+        }
+        currentColor = thisRenderer.material.color;
     }
 
     /// <summary>
@@ -82,7 +121,7 @@ public class LightTriggerPad : MonoBehaviour {
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
 
-        if (ListsContainSameElements(acceptedColors, lightsOnTriggerPad))
+        if (IsBeingCharged())
         {
             // we add decayPerTick, because we decay the amount even if we're adding to the charge
             // we need to divide by the number of elements in acceptedColors, because AcceptChargeAmount will be
@@ -111,6 +150,34 @@ public class LightTriggerPad : MonoBehaviour {
     {
         return a.All(aElem => b.Contains(aElem)) &&
             b.All(bElem => a.Contains(bElem));
+    }
+
+    #region VFX
+
+    private Color GetBrighterColor(Color c)
+    {
+        float h, s, v;
+        Color.RGBToHSV(thisRenderer.material.color, out h, out s, out v);
+        v *= 3f;
+        return Color.HSVToRGB(h, s, v);
+    }
+
+    private bool IsColorBrighter(Color darkerColor, Color brighterColor)
+    {
+        return GetLuminance(darkerColor) < GetLuminance(brighterColor);
+    }
+    
+    private float GetLuminance(Color c)
+    {
+        return (0.299f * c.r) + (0.587f * c.g) + (0.114f * c.b);
+    }
+
+
+    #endregion
+
+    private bool IsBeingCharged()
+    {
+        return ListsContainSameElements(lightsOnTriggerPad, acceptedColors);
     }
 
 }
