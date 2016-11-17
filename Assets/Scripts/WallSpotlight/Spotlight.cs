@@ -11,11 +11,13 @@ public class Spotlight : MonoBehaviour {
     [SerializeField]
     private ColoredLight.LightColor lightColor;
     private ColoredLight coloredLight;
+    private PlayerColorManager playerColorManager;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
-        coloredLight = new ColoredLight(lightColor);
+        coloredLight = new ColoredLight(lightColor, GetSpotlightColor());
+        playerColorManager = GameObject.FindWithTag(Tags.PLAYER_COLOR_MANAGER).GetComponent<PlayerColorManager>();
     }
 
 	void FixedUpdate()
@@ -30,11 +32,18 @@ public class Spotlight : MonoBehaviour {
         RaycastHit hit = RaycastToPlayer();
         if (hit.collider)
         {
-            LightTriggerPad triggerPad = hit.collider.GetComponent<LightTriggerPad>();
-            if (triggerPad)
+            if (hit.collider.tag == Tags.PLAYER)
             {
-                triggerPad.AcceptLight(coloredLight);
+                playerColorManager.AcceptLight(coloredLight);
+            } else if (hit.collider.tag == Tags.LIGHTPAD_TRIGGER)
+            {
+                LightTriggerPad triggerPad = hit.collider.GetComponent<LightTriggerPad>();
+                if (triggerPad)
+                {
+                    triggerPad.AcceptLight(coloredLight);
+                }
             }
+
         }
     }
 
@@ -78,5 +87,22 @@ public class Spotlight : MonoBehaviour {
     {
         Vector3 v = player.transform.position - transform.position;
         return normalized ? v.normalized : v;
+    }
+
+
+    /// <summary>
+    /// Assumes Color determined by child object with SpotlightWallObj tag
+    /// </summary>
+    /// <returns></returns>
+    Color GetSpotlightColor()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.tag == Tags.SPOTLIGHT_WALL_OBJ)
+            {
+                return child.GetComponent<Renderer>().material.color;
+            }
+        }
+        return Color.white;
     }
 }
