@@ -1413,6 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ce576fb22a70d49bd4053ef443ea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rechargeable: 0
   chargePerTick: 0.5
   decayPerTick: 1
   unlocked: 0
@@ -1856,6 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ce576fb22a70d49bd4053ef443ea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rechargeable: 1
   chargePerTick: 0.5
   decayPerTick: 1
   unlocked: 0
@@ -3551,7 +3553,7 @@ MonoBehaviour:
   - 
   ints: 
   floats:
-  - -5.58
+  - -3.58
   - 2.5
   bools: 
   strings: []

@@ -6,6 +6,8 @@ using System.Linq;
 
 public class LightTriggerPad : MonoBehaviour {
     [SerializeField]
+    bool rechargeable = false;
+    [SerializeField]
     float chargePerTick = .5f;
     [SerializeField]
     float decayPerTick = 1f;
@@ -55,9 +57,13 @@ public class LightTriggerPad : MonoBehaviour {
                 Unlocked.Invoke();
             }
         }
-        if (!unlocked)
+        if (!unlocked || (unlocked && rechargeable))
         {
             AcceptChargeAmount(-decayPerTick);
+        }
+        if (rechargeable && unlocked && currentCharge == 0)
+        {
+            unlocked = false;
         }
     }
 
@@ -69,7 +75,10 @@ public class LightTriggerPad : MonoBehaviour {
     /// <param name="coloredLight"></param>
     public void AcceptLight(ColoredLight coloredLight)
     {
-        StartCoroutine(_AcceptLight(coloredLight));
+        if (!unlocked)
+        {
+            StartCoroutine(_AcceptLight(coloredLight));
+        }
     }
 
     // Add color to lightsOnTriggerPad
@@ -95,7 +104,7 @@ public class LightTriggerPad : MonoBehaviour {
 
     private void AcceptChargeAmount(float amount)
     {
-        if (!unlocked)
+        if (!unlocked || rechargeable)
         {
             currentCharge += amount;
             currentCharge = Mathf.Clamp(currentCharge, 0, 100);
