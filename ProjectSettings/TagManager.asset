@@ -9,6 +9,7 @@ TagManager:
   - SpotlightLight
   - PlayerModelBody
   - LightpadTrigger
+  - LevelManager
   layers:
   - Default
   - TransparentFX
