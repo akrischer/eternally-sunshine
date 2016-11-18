@@ -6,6 +6,8 @@ using System.Linq;
 
 public class LightTriggerPad : MonoBehaviour {
     [SerializeField]
+    bool rechargeable = false;
+    [SerializeField]
     float chargePerTick = .5f;
     [SerializeField]
     float decayPerTick = 1f;
@@ -74,11 +76,16 @@ public class LightTriggerPad : MonoBehaviour {
                 Unlocked.Invoke();
             }
         }
-        if (!unlocked)
+        if (!unlocked || (unlocked && rechargeable))
         {
             AcceptChargeAmount(-decayPerTick);
         }
+		if (rechargeable && unlocked && currentCharge == 0)
+        {
+            unlocked = false;
+        }
 
+		// brighten if it's being charged
         Color dColor = (brighterColor - startColor) / brightenTime * .02f;
         if (IsBeingCharged())
         {
@@ -108,14 +115,17 @@ public class LightTriggerPad : MonoBehaviour {
     /// <param name="coloredLight"></param>
     public void AcceptLight(ColoredLight coloredLight)
     {
-        StartCoroutine(_AcceptLight(coloredLight));
+        if (!unlocked)
+        {
+            StartCoroutine(_AcceptLight(coloredLight));
+        }
     }
 
     // Add color to lightsOnTriggerPad
     // Wait for 2 fixed updates, to allow other colors to hit this pad (that we can then track)
     private IEnumerator _AcceptLight(ColoredLight coloredLight)
     {
-        lightsOnTriggerPad.Add(coloredLight.Color);
+        lightsOnTriggerPad.Add(coloredLight.ColorName);
         
         // We wait for two fixed updates to allow for minimal overlap between adding/removing from the lightsOnTriggerPad list
         yield return new WaitForFixedUpdate();
@@ -129,12 +139,12 @@ public class LightTriggerPad : MonoBehaviour {
             float chargeAmount = (decayPerTick + chargePerTick) / acceptedColors.Count;
             AcceptChargeAmount(chargeAmount);
         }
-        lightsOnTriggerPad.Remove(coloredLight.Color);
+        lightsOnTriggerPad.Remove(coloredLight.ColorName);
     }
 
     private void AcceptChargeAmount(float amount)
     {
-        if (!unlocked)
+        if (!unlocked || rechargeable)
         {
             currentCharge += amount;
             currentCharge = Mathf.Clamp(currentCharge, 0, 100);
@@ -179,5 +189,4 @@ public class LightTriggerPad : MonoBehaviour {
     {
         return ListsContainSameElements(lightsOnTriggerPad, acceptedColors);
     }
-
 }

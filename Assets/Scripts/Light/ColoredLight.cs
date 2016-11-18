@@ -9,7 +9,7 @@ public struct ColoredLight {
     }
 
     private LightColor lightColor;
-    public LightColor Color
+    public LightColor ColorName
     {
         get
         {
@@ -17,8 +17,18 @@ public struct ColoredLight {
         }
     }
 
-    public ColoredLight(LightColor color)
+    private Color color;
+    public Color Color
     {
-        this.lightColor = color;
+        get
+        {
+            return color;
+        }
+    }
+
+    public ColoredLight(LightColor colorName, Color color)
+    {
+        this.lightColor = colorName;
+        this.color = color;
     }
 }

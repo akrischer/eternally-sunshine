@@ -7,10 +7,15 @@ public class PlayerColorManager : MonoBehaviour {
 
     [SerializeField]
     Color playerColor;
+    [SerializeField]
+    Color defaultColor;
 
     [SerializeField]
     GameObject playerModelBody;
     Renderer playerRenderer;
+
+    // A rolling list of what lights are currently shining on player
+    List<ColoredLight> lightsOnPlayer = new List<ColoredLight>();
 
     private List<Light> _spotlights;
     private List<Light> Spotlights
@@ -65,8 +70,16 @@ public class PlayerColorManager : MonoBehaviour {
     // Additively blend all spotlight colors
     Color CalculatePlayerColor()
     {
-        List<Color> spotlightColors = Spotlights.Select(spotlight => spotlight.color).ToList();
-        return spotlightColors.Aggregate((prod, next) => AdditivelyBlendColors(prod, next));
+        if (lightsOnPlayer.Count > 0)
+        {
+            return lightsOnPlayer
+            .Select(light => light.Color)
+            .Aggregate((prod, next) => AdditivelyBlendColors(prod, next));
+        } else
+        {
+            return defaultColor;
+        }
+
     }
 
     Color GetPlayerColor()
@@ -78,4 +91,32 @@ public class PlayerColorManager : MonoBehaviour {
     {
         return (c1 + c2) / 2;
     }
+
+    #region Test
+
+    /// <summary>
+    /// Accept that a ColoredLight is currently hitting this Light Trigger Pad.
+    /// This does not guarantee that the pad will be charged, as the pad will only charge if exactly
+    /// the colors in acceptedColors are currently hitting the pad
+    /// </summary>
+    /// <param name="coloredLight"></param>
+    public void AcceptLight(ColoredLight coloredLight)
+    {
+        StartCoroutine(_AcceptLight(coloredLight));
+    }
+
+    // Add color to lightsOnTriggerPad
+    // Wait for 2 fixed updates, to allow other colors to hit this pad (that we can then track)
+    private IEnumerator _AcceptLight(ColoredLight coloredLight)
+    {
+        lightsOnPlayer.Add(coloredLight);
+
+        // We wait for two fixed updates to allow for minimal overlap between adding/removing from the lightsOnTriggerPad list
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+
+        lightsOnPlayer.Remove(coloredLight);
+    }
+
+    #endregion
 }
