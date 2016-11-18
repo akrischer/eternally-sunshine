@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Spotlight : MonoBehaviour {
 
+    [SerializeField]
+    internal float raycastVertOffset = 0;
     private float radius = 3f;
     private GameObject player;
     [SerializeField]
@@ -27,7 +29,7 @@ public class Spotlight : MonoBehaviour {
             DrawCircleAroundPlayer();
         }
 
-        transform.LookAt(player.transform);
+        transform.LookAt(player.transform.position + new Vector3(0, raycastVertOffset, 0));
 
         RaycastHit hit = RaycastToPlayer();
         if (hit.collider)
@@ -85,7 +87,7 @@ public class Spotlight : MonoBehaviour {
 
     Vector3 GetDirectionVectorToPlayer(bool normalized = false)
     {
-        Vector3 v = player.transform.position - transform.position;
+        Vector3 v = (player.transform.position + new Vector3(0, raycastVertOffset, 0)) - transform.position;
         return normalized ? v.normalized : v;
     }
 

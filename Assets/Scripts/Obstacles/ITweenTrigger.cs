@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class ITweenTrigger : MonoBehaviour {
 
+    public bool cycle;
     public bool cycleFromBeginning;
     public List<string> itweenEventIds;
 
@@ -14,7 +15,7 @@ public class ITweenTrigger : MonoBehaviour {
         if (currentEventIdPtr < itweenEventIds.Count)
         {
             TriggerEvent(itweenEventIds[currentEventIdPtr]);
-        } else
+        } else if (cycle)
         {
             if (cycleFromBeginning)
             {

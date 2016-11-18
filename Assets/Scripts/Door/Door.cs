@@ -14,7 +14,7 @@ public class Door : MonoBehaviour {
 
     void Start()
     {
-        closedPos = transform.position;
+        closedPos = transform.localPosition;
     }
 
     public void TryOpen()
@@ -35,10 +35,10 @@ public class Door : MonoBehaviour {
         Vector3 dVector = totalMovementVector * stepTime / openAndCloseDuration;
         while (Time.time <= startTime + openAndCloseDuration)
         {
-            transform.position += dVector;
+            transform.localPosition += dVector;
             yield return new WaitForFixedUpdate();
         }
-        transform.position = openPos;
+        transform.localPosition = openPos;
         isMovementLocked = false;
     }
 
@@ -60,10 +60,10 @@ public class Door : MonoBehaviour {
         Vector3 dVector = totalMovementVector * stepTime / openAndCloseDuration;
         while (Time.time <= startTime + openAndCloseDuration)
         {
-            transform.position += dVector;
+            transform.localPosition += dVector;
             yield return new WaitForFixedUpdate();
         }
-        transform.position = closedPos;
+        transform.localPosition = closedPos;
         isMovementLocked = false;
     }
 }
