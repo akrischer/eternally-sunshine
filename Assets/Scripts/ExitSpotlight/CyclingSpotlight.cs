@@ -11,6 +11,11 @@ public class CyclingSpotlight : MonoBehaviour {
     float cycleDelay = 3;
     [SerializeField]
     float cycleDuration = 3;
+    [SerializeField]
+    bool doSnakeRepeat = false;
+
+    // Used for snaking repeat patterns (e.g. light goes back and forth)
+    private bool isOddCycle = false;
 
     Vector3 startPos;
 
@@ -22,20 +27,27 @@ public class CyclingSpotlight : MonoBehaviour {
 
     public void StartCycle()
     {
-        StartCoroutine(_StartCycle());
+        StartCoroutine(_StartCycle(doSnakeRepeat));
     }
 
-    private IEnumerator _StartCycle()
+    private IEnumerator _StartCycle(bool snakeRepeat = false)
     {
-        yield return StartCoroutine(RunCycle());
+        yield return StartCoroutine(RunCycle(snakeRepeat));
         yield return new WaitForSeconds(cycleDelay);
-        StartCoroutine(_StartCycle());
+        StartCoroutine(_StartCycle(snakeRepeat));
     }
 
-    private IEnumerator RunCycle()
+    private IEnumerator RunCycle(bool snakeRepeat)
     {
+        
         Vector3 start = startPos + new Vector3(0, 0, zStartDelta);
         Vector3 end = startPos + new Vector3(0, 0, zEndDelta);
+        if (snakeRepeat && isOddCycle)
+        {
+            start = startPos + new Vector3(0, 0, zEndDelta);
+            end = startPos + new Vector3(0, 0, zStartDelta);
+        }
+
         float startTime = Time.time;
         
         transform.position = start;
@@ -47,7 +59,8 @@ public class CyclingSpotlight : MonoBehaviour {
             transform.position += dVector;
             yield return new WaitForFixedUpdate();
         }
-        transform.position = startPos + new Vector3(0, 0, zEndDelta);
+        transform.position = end;
+        isOddCycle = !isOddCycle; // if was odd cycle, now even. And vice versa
     }
 
     #region Gizmos
