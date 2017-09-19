@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 //  Copyright(c) 2016, Michal Skalsky
 //  All rights reserved.
 //
@@ -99,7 +101,7 @@ Shader "Hidden/BilateralBlur"
 		v2f vert(appdata v)
 		{
 			v2f o;
-			o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+			o.vertex = UnityObjectToClipPos(v.vertex);
 			o.uv = v.uv;
 			return o;
 		}
@@ -110,7 +112,7 @@ Shader "Hidden/BilateralBlur"
 		v2fDownsample vertDownsampleDepth(appdata v, float2 texelSize)
 		{
 			v2fDownsample o;
-			o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+			o.vertex = UnityObjectToClipPos(v.vertex);
 			o.uv = v.uv;
 			return o;
 		}
@@ -121,7 +123,7 @@ Shader "Hidden/BilateralBlur"
         v2fUpsample vertUpsample(appdata v, float2 texelSize)
         {
             v2fUpsample o;
-            o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+            o.vertex = UnityObjectToClipPos(v.vertex);
             o.uv = v.uv;
 
             o.uv00 = v.uv - 0.5 * texelSize.xy;

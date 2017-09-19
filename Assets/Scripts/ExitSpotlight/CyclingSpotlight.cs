@@ -59,6 +59,7 @@ public class CyclingSpotlight : MonoBehaviour {
             transform.position += dVector;
             yield return new WaitForFixedUpdate();
         }
+
         transform.position = end;
         isOddCycle = !isOddCycle; // if was odd cycle, now even. And vice versa
     }

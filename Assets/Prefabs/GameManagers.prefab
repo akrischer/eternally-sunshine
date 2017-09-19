@@ -16,10 +16,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011539407368}
-  - 114: {fileID: 114000014220992426}
+  - component: {fileID: 4000011539407368}
+  - component: {fileID: 114000014220992426}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -32,10 +32,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011309418522}
-  - 114: {fileID: 114000010223761054}
+  - component: {fileID: 4000011309418522}
+  - component: {fileID: 114000010223761054}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: LevelManager
@@ -48,10 +48,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000014119315436}
-  - 114: {fileID: 114000012257182008}
+  - component: {fileID: 4000014119315436}
+  - component: {fileID: 114000012257182008}
   m_Layer: 0
   m_Name: PlayerColorManager
   m_TagString: PlayerColorManager
@@ -68,10 +68,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011539407368}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000011539407368
 Transform:
   m_ObjectHideFlags: 1
@@ -81,12 +81,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000014119315436}
   - {fileID: 4000011309418522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000014119315436
 Transform:
   m_ObjectHideFlags: 1
@@ -96,10 +96,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011539407368}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000010223761054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,9 +112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - name: main
+  - name: level_1
   - name: level_2
   - name: level_3
+  - name: level_4
+  - name: level_5
 --- !u!114 &114000012257182008
 MonoBehaviour:
   m_ObjectHideFlags: 1
