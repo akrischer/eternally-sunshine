@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b572090f006ec9447bff4a8351edc926, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b572090f006ec9447bff4a8351edc926, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -391,7 +391,7 @@ RectTransform:
   m_Children:
   - {fileID: 1835713130}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -469,7 +469,6 @@ GameObject:
   m_Component:
   - component: {fileID: 262406241}
   - component: {fileID: 262406240}
-  - component: {fileID: 262406239}
   - component: {fileID: 262406238}
   m_Layer: 0
   m_Name: arrow_left
@@ -507,7 +506,7 @@ MonoBehaviour:
   - 
   ints: 
   floats:
-  - 2
+  - 1.5
   bools: 
   strings: []
   vector3s:
@@ -523,21 +522,6 @@ MonoBehaviour:
   vector3Arrays: []
   transformArrays: []
   paths: []
---- !u!114 &262406239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 262406237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c091035663ced9742b7a958467685c29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cycle: 0
-  cycleFromBeginning: 0
-  itweenEventIds:
-  - arrow_indic_cycle
 --- !u!212 &262406240
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -571,7 +555,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eb6e2321c7ef14f41b3d17d20c6c2cce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6838235, g: 0.6838235, b: 0.6838235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -588,9 +572,9 @@ Transform:
   m_GameObject: {fileID: 262406237}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -6.04, y: 7.84, z: 13.41}
-  m_LocalScale: {x: 1, y: 0.7065298, z: 1}
+  m_LocalScale: {x: 1, y: 0.70653003, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 379277854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &263582056
@@ -837,6 +821,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 262406241}
   - {fileID: 1636363432}
   - {fileID: 1295162557}
   m_Father: {fileID: 1415678388}
@@ -2199,7 +2184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011539407368, guid: 0bdec470225d76243b8917a520c22130, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bdec470225d76243b8917a520c22130, type: 2}
@@ -2268,7 +2253,7 @@ Transform:
   - {fileID: 125691876}
   - {fileID: 1083371847}
   m_Father: {fileID: 379277854}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1299453480
 GameObject:
@@ -2632,7 +2617,7 @@ Transform:
   - {fileID: 379277854}
   - {fileID: 1398527863}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479976019
 GameObject:
@@ -2923,7 +2908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1507708153
 GameObject:
@@ -3188,7 +3173,7 @@ Transform:
   - {fileID: 377242996}
   - {fileID: 1045348974}
   m_Father: {fileID: 379277854}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1655585035
 Prefab:
@@ -3227,7 +3212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012030523232, guid: 5e06eaae03e81ff40870e0f041663d0d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e06eaae03e81ff40870e0f041663d0d, type: 2}
