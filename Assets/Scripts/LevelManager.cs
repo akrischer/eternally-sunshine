@@ -29,6 +29,12 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
+    public void CompleteQuitGame()
+    {
+        Debug.Log("QUITTING GAME");
+        Application.Quit();
+    }
+
     public void LoadNextLevel()
     {
         SceneManager.LoadSceneAsync(GetNextLevel().Name);

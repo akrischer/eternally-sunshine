@@ -1,6 +1,9 @@
 {
 	"levels": [
 		{
+			"name": "main_menu"
+		},
+		{
 			"name": "level_1"
 		},
 		{

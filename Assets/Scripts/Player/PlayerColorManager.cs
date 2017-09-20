@@ -72,9 +72,6 @@ public class PlayerColorManager : MonoBehaviour {
     {
         if (lightsOnPlayer.Count > 0)
         {
-            Debug.LogWarning("CalculatePlayerColor - calculated: " + lightsOnPlayer
-            .Select(light => light.Color)
-            .Aggregate((prod, next) => AdditivelyBlendColors(prod, next)), this);
             return lightsOnPlayer
             .Select(light => light.Color)
             .Aggregate((prod, next) => AdditivelyBlendColors(prod, next));
