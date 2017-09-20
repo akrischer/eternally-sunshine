@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Rotate : MonoBehaviour {
@@ -25,6 +26,11 @@ public class Rotate : MonoBehaviour {
             }
             transform.Rotate(rotationVector * rotation.degreesPerSecond * Time.fixedDeltaTime);
         }
+    }
+
+    public void ReverseRotation()
+    {
+        rotations.ForEach(rotation => rotation.degreesPerSecond *= -1);
     }
 
     [System.Serializable]
