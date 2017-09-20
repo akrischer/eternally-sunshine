@@ -122,7 +122,7 @@ public class PressurePlate : MonoBehaviour {
             }
         } else
         {
-            currentMoveDir = MoveDir.STAY_PUT;
+            currentMoveDir = MoveDir.AWAY_FROM_TRIGGER;
         }
     }
 }

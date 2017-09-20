@@ -111,12 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfc344ec1aafa2489a3c4d25ae7f086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - name: level_1
-  - name: level_2
-  - name: level_3
-  - name: level_4
-  - name: level_5
+  allLevels:
+    levels: []
+  currentLevel:
+    name: 
+  scenesInBuild: []
 --- !u!114 &114000012257182008
 MonoBehaviour:
   m_ObjectHideFlags: 1

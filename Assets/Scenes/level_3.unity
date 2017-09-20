@@ -623,6 +623,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ad8ff8a7cdcb2a4c8a5a837085ffef3, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &239526607 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000011920321850, guid: 0ad8ff8a7cdcb2a4c8a5a837085ffef3,
+    type: 2}
+  m_PrefabInternal: {fileID: 239526606}
 --- !u!1001 &263582056
 Prefab:
   m_ObjectHideFlags: 0
@@ -1460,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54f5c5a285c8fc4a97064ec606040cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 1398527863}
+  objectToFollow: {fileID: 239526607}
 --- !u!108 &600713567
 Light:
   m_ObjectHideFlags: 0
@@ -3043,11 +3048,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &1398527863 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000011920321850, guid: 0ad8ff8a7cdcb2a4c8a5a837085ffef3,
-    type: 2}
-  m_PrefabInternal: {fileID: 239526606}
 --- !u!1 &1400183772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,7 +3185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 379277854}
-  - {fileID: 1398527863}
+  - {fileID: 239526607}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3424,7 +3424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54f5c5a285c8fc4a97064ec606040cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToFollow: {fileID: 1398527863}
+  objectToFollow: {fileID: 0}
 --- !u!108 &1490167418
 Light:
   m_ObjectHideFlags: 0
