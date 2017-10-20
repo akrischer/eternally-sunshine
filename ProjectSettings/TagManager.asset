@@ -12,6 +12,7 @@ TagManager:
   - LevelManager
   - MM_Start
   - MM_Quit
+  - GameWorld
   layers:
   - Default
   - TransparentFX

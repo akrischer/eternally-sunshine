@@ -12,4 +12,5 @@ public class Tags {
     public static readonly string LEVEL_MANAGER = "LevelManager";
     public static readonly string MAIN_MENU_START = "MM_Start";
     public static readonly string MAIN_MENU_QUIT = "MM_Quit";
+    public static readonly string GAME_WORLD = "GameWorld";
 }
