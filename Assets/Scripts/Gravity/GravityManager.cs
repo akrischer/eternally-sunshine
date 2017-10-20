@@ -6,11 +6,13 @@ using UnityEngine;
 public class GravityManager : MonoBehaviour
 {
 
+    
     public enum GravityDirection
     {
         X, Y, Z
     }
 
+    private Stack<GravityDirection> rotationStack = new Stack<GravityDirection>();
     GameObject player;
     GameObject gameWorld;
     private static GravityDirection currentGravityDirection = GravityDirection.Y;
@@ -54,26 +56,53 @@ public class GravityManager : MonoBehaviour
     {
         Vector3 currentGameWorldRotation = gameWorld.transform.eulerAngles;
         Vector3 playerRotationVector = player.transform.eulerAngles;
+
+        UndoGravityRotations();
+
         switch (gravity)
         {
             case "X":
+                RotateDirection(GravityDirection.X);
+                break;
+            case "Y":
+                RotateDirection(GravityDirection.Y);
+                break;
+            case "Z":
+                RotateDirection(GravityDirection.Z);
+                break;
+        }
+    }
+
+    private void UndoGravityRotations()
+    {
+        while (rotationStack.Count > 0)
+        {
+            GravityDirection gravityDirection = rotationStack.Pop();
+            RotateDirection(gravityDirection, true);
+        }
+    }
+
+    private void RotateDirection(GravityDirection direction, bool reverse = false)
+    {
+        Vector3 currentGameWorldRotation = gameWorld.transform.eulerAngles;
+        Vector3 playerRotationVector = player.transform.eulerAngles;
+
+
+        switch (direction.ToString())
+        {
+            case "X":
                 currentGravityDirection = GravityDirection.X;
-                //float z = currentGameWorldRotation.z + 90;
-                //gameWorld.transform.RotateAround(player.transform.position, Vector3.back, z);
-                RotateAround(player.transform.position, gameWorld, new Vector3(0, 0, -90));
-                //gameWorld.transform.localEulerAngles = gameWorldEulerAngles_X;
+                float z = reverse ? 90 : -90;
+                RotateAround(player.transform.position, gameWorld, new Vector3(0, 0, z));
                 break;
             case "Y":
                 currentGravityDirection = GravityDirection.Y;
-                //gameWorld.transform.localEulerAngles = gameWorldEulerAngles_Y;
                 RotateAround(player.transform.position, gameWorld, new Vector3(0, 0, 0));
                 break;
             case "Z":
                 currentGravityDirection = GravityDirection.Z;
-                //float x = 90 - currentGameWorldRotation.x;
-                //gameWorld.transform.RotateAround(player.transform.position, Vector3.right, x);
-                //gameWorld.transform.localEulerAngles = gameWorldEulerAngles_Z;
-                RotateAround(player.transform.position, gameWorld, new Vector3(90, 0, 0));
+                float x = reverse ? -90 : 90;
+                RotateAround(player.transform.position, gameWorld, new Vector3(x, 0, 0));
                 break;
         }
     }
