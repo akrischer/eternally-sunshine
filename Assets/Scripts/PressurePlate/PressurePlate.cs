@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
 
+    enum Direction { X, Y, Z }
+
     [SerializeField]
     float distance; // distance plate moves
     [SerializeField]
@@ -13,6 +15,10 @@ public class PressurePlate : MonoBehaviour {
     bool isRepeatable; // can you trigger this plate repeatedly?
     [SerializeField]
     bool isContinuous; // Trigger the end event repeatedly every fixed update?
+    [SerializeField]
+    Direction moveDirection = Direction.Y;
+    [SerializeField]
+    bool invert = false;
 
     private enum MoveDir
     {
@@ -21,13 +27,14 @@ public class PressurePlate : MonoBehaviour {
     [SerializeField]
     private MoveDir currentMoveDir = MoveDir.STAY_PUT;
 
-    private float startY;
+    private Vector3 start;
     private bool hasFired; // used when isContinuous == false
     private bool isActive
     {
         get
         {
-            return Mathf.Abs(transform.localPosition.y - startY) >= distance;
+            float dot = Vector3.Dot(GetEndPosition() - transform.localPosition, Vector3.one);
+            return invert ? dot <= 0 : dot >= 0;
         }
     }
 
@@ -36,14 +43,9 @@ public class PressurePlate : MonoBehaviour {
     [SerializeField]
     UnityEvent Trigger;
 
-    void adadad()
-    {
-        Debug.Log("TRIGGER!");
-    }
     void Start()
     {
-        startY = gameObject.transform.localPosition.y;
-        Trigger.AddListener(adadad);
+        start = gameObject.transform.localPosition;
     }
 
     void FixedUpdate()
@@ -61,9 +63,7 @@ public class PressurePlate : MonoBehaviour {
                 {
                     TryInvokeTrigger();
                     currentMoveDir = MoveDir.STAY_PUT;
-                    Vector3 cp = transform.localPosition;
-                    cp.y = startY - distance;
-                    transform.localPosition = cp;
+                    transform.localPosition = GetEndPosition();
                 }
                 // if plate has not yet reached triggered position
                 else
@@ -74,12 +74,12 @@ public class PressurePlate : MonoBehaviour {
                 break;
             case MoveDir.AWAY_FROM_TRIGGER:
                 // if plate has reached resting position
-                if (transform.localPosition.y >= startY)
+                Vector3 diff = start - transform.localPosition;
+                float dot = Vector3.Dot(start - transform.localPosition, Vector3.one);
+                if ((invert && dot >= 0) || (!invert && dot <= 0))
                 {
                     currentMoveDir = MoveDir.STAY_PUT;
-                    Vector3 cp = transform.localPosition;
-                    cp.y = startY;
-                    transform.localPosition = cp;
+                    transform.localPosition = start;
                 }
                 else
                 // if plate has not yet reached resting position
@@ -88,6 +88,52 @@ public class PressurePlate : MonoBehaviour {
                     transform.Translate(Vector3.up * Time.fixedDeltaTime * distancePerSecond);
                 }
                 break;
+        }
+    }
+
+    private float GetCurrentMovementAxisValue()
+    {
+        switch (moveDirection)
+        {
+            case Direction.X:
+                return transform.localPosition.x;
+            case Direction.Y:
+                return transform.localPosition.y;
+            case Direction.Z:
+                return transform.localPosition.z;
+            default:
+                return transform.localPosition.y;
+        }
+    }
+
+    private float GetStartMovementAxisValue()
+    {
+        switch (moveDirection)
+        {
+            case Direction.X:
+                return start.x;
+            case Direction.Y:
+                return start.y;
+            case Direction.Z:
+                return start.z;
+            default:
+                return start.y;
+        }
+    }
+
+    private Vector3 GetEndPosition()
+    {
+        float correctedDistance = invert ? -distance : distance;
+        switch (moveDirection)
+        {
+            case Direction.X:
+                return new Vector3(start.x - correctedDistance, start.y, start.z);
+            case Direction.Y:
+                return new Vector3(start.x, start.y - correctedDistance, start.z);
+            case Direction.Z:
+                return new Vector3(start.x, start.y, start.z - correctedDistance);
+            default:
+                return new Vector3(start.x, start.y - correctedDistance, start.z);
         }
     }
 
