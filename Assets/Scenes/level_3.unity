@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 727126896}
   - component: {fileID: 727126895}
   - component: {fileID: 727126894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightpadTrigger
   m_TagString: LightpadTrigger
   m_Icon: {fileID: 0}
@@ -2056,7 +2056,7 @@ GameObject:
   - component: {fileID: 935427542}
   - component: {fileID: 935427541}
   - component: {fileID: 935427545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightpadTrigger
   m_TagString: LightpadTrigger
   m_Icon: {fileID: 0}
