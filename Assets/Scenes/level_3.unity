@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 125691879}
   - component: {fileID: 125691878}
   - component: {fileID: 125691877}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: InvisBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 148610911}
   - component: {fileID: 148610910}
   - component: {fileID: 148610909}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 169279806}
   - component: {fileID: 169279808}
   - component: {fileID: 169279807}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 353536684}
   - component: {fileID: 353536683}
   - component: {fileID: 353536682}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Wall 1 Edges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 377242999}
   - component: {fileID: 377242998}
   - component: {fileID: 377242997}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1064,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 442700354}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500499264}
   - component: {fileID: 500499265}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpotlightRotater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1145,7 +1145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523971152}
   - component: {fileID: 523971153}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpotlightRotater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1285,7 +1285,7 @@ GameObject:
   - component: {fileID: 570994813}
   - component: {fileID: 570994812}
   - component: {fileID: 570994811}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall Spotlight
   m_TagString: SpotlightWallObj
   m_Icon: {fileID: 0}
@@ -1389,7 +1389,7 @@ GameObject:
   - component: {fileID: 600713566}
   - component: {fileID: 600713565}
   - component: {fileID: 600713564}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpotlightLight
   m_TagString: SpotlightLight
   m_Icon: {fileID: 0}
@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 727126896}
   - component: {fileID: 727126895}
   - component: {fileID: 727126894}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LightpadTrigger
   m_TagString: LightpadTrigger
   m_Icon: {fileID: 0}
@@ -1772,7 +1772,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 821041123}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1803,7 +1803,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 834238013}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1918,7 +1918,7 @@ GameObject:
   - component: {fileID: 900401331}
   - component: {fileID: 900401330}
   - component: {fileID: 900401329}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall Spotlight
   m_TagString: SpotlightWallObj
   m_Icon: {fileID: 0}
@@ -2056,7 +2056,7 @@ GameObject:
   - component: {fileID: 935427542}
   - component: {fileID: 935427541}
   - component: {fileID: 935427545}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LightpadTrigger
   m_TagString: LightpadTrigger
   m_Icon: {fileID: 0}
@@ -2334,7 +2334,7 @@ GameObject:
   - component: {fileID: 1071314107}
   - component: {fileID: 1071314106}
   - component: {fileID: 1071314105}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2735,7 +2735,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1295162557}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2768,7 +2768,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1299453481}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2805,7 +2805,7 @@ GameObject:
   - component: {fileID: 1300804258}
   - component: {fileID: 1300804257}
   - component: {fileID: 1300804256}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2894,7 +2894,7 @@ GameObject:
   - component: {fileID: 1303887038}
   - component: {fileID: 1303887037}
   - component: {fileID: 1303887036}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: WALL (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3259,7 +3259,7 @@ GameObject:
   - component: {fileID: 1479976023}
   - component: {fileID: 1479976022}
   - component: {fileID: 1479976021}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Wall 1 Edges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3348,7 +3348,7 @@ GameObject:
   - component: {fileID: 1490167417}
   - component: {fileID: 1490167416}
   - component: {fileID: 1490167415}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpotlightLight
   m_TagString: SpotlightLight
   m_Icon: {fileID: 0}
@@ -3603,7 +3603,7 @@ GameObject:
   - component: {fileID: 1507708154}
   - component: {fileID: 1507708156}
   - component: {fileID: 1507708155}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3756,7 +3756,7 @@ GameObject:
   - component: {fileID: 1539001438}
   - component: {fileID: 1539001437}
   - component: {fileID: 1539001436}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Top Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3843,7 +3843,7 @@ GameObject:
   - component: {fileID: 1547370200}
   - component: {fileID: 1547370199}
   - component: {fileID: 1547370198}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Top Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4106,7 +4106,7 @@ GameObject:
   - component: {fileID: 1711734892}
   - component: {fileID: 1711734890}
   - component: {fileID: 1711734891}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4294,7 +4294,7 @@ GameObject:
   - component: {fileID: 1795805640}
   - component: {fileID: 1795805639}
   - component: {fileID: 1795805638}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4619,7 +4619,7 @@ GameObject:
   - component: {fileID: 2026800235}
   - component: {fileID: 2026800234}
   - component: {fileID: 2026800233}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: WALL (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

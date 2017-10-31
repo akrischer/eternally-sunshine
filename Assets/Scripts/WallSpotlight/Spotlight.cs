@@ -20,6 +20,7 @@ public class Spotlight : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
         coloredLight = new ColoredLight(lightColor, GetSpotlightColor());
         playerColorManager = GameObject.FindWithTag(Tags.PLAYER_COLOR_MANAGER).GetComponent<PlayerColorManager>();
+        layerMask = LayerMask.GetMask("Spotlight Interactive Surface");
     }
 
 	void FixedUpdate()
@@ -61,7 +62,7 @@ public class Spotlight : MonoBehaviour {
         }
         Ray ray = new Ray(transform.position, GetDirectionVectorToPlayer());
         RaycastHit raycastHit;
-        Physics.Raycast(ray, out raycastHit, GetDistanceToPlayer() + 1, layerMask);
+        Physics.Raycast(ray, out raycastHit, GetDistanceToPlayer() + 3, layerMask);
         return raycastHit;
     }
     #endregion

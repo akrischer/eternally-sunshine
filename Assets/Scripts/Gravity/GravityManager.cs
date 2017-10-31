@@ -63,12 +63,15 @@ public class GravityManager : MonoBehaviour
         {
             case "X":
                 RotateDirection(GravityDirection.X);
+                rotationStack.Push(GravityDirection.X);
                 break;
             case "Y":
                 RotateDirection(GravityDirection.Y);
+                rotationStack.Push(GravityDirection.Y);
                 break;
             case "Z":
                 RotateDirection(GravityDirection.Z);
+                rotationStack.Push(GravityDirection.Z);
                 break;
         }
     }
@@ -92,7 +95,7 @@ public class GravityManager : MonoBehaviour
         {
             case "X":
                 currentGravityDirection = GravityDirection.X;
-                float z = reverse ? 90 : -90;
+                float z = reverse ? 0 : -90;
                 RotateAround(player.transform.position, gameWorld, new Vector3(0, 0, z));
                 break;
             case "Y":
@@ -101,7 +104,7 @@ public class GravityManager : MonoBehaviour
                 break;
             case "Z":
                 currentGravityDirection = GravityDirection.Z;
-                float x = reverse ? -90 : 90;
+                float x = reverse ? 0 : 90;
                 RotateAround(player.transform.position, gameWorld, new Vector3(x, 0, 0));
                 break;
         }

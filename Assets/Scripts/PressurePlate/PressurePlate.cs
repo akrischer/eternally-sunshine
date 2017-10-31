@@ -27,7 +27,7 @@ public class PressurePlate : MonoBehaviour {
     {
         get
         {
-            return Mathf.Abs(transform.position.y - startY) >= distance;
+            return Mathf.Abs(transform.localPosition.y - startY) >= distance;
         }
     }
 
@@ -42,7 +42,7 @@ public class PressurePlate : MonoBehaviour {
     }
     void Start()
     {
-        startY = gameObject.transform.position.y;
+        startY = gameObject.transform.localPosition.y;
         Trigger.AddListener(adadad);
     }
 
@@ -61,30 +61,30 @@ public class PressurePlate : MonoBehaviour {
                 {
                     TryInvokeTrigger();
                     currentMoveDir = MoveDir.STAY_PUT;
-                    Vector3 cp = transform.position;
+                    Vector3 cp = transform.localPosition;
                     cp.y = startY - distance;
-                    transform.position = cp;
+                    transform.localPosition = cp;
                 }
                 // if plate has not yet reached triggered position
                 else
                 {
-                    Vector3 cp = transform.position;
+                    Vector3 cp = transform.localPosition;
                     transform.Translate(Vector3.down * Time.fixedDeltaTime * distancePerSecond);
                 }
                 break;
             case MoveDir.AWAY_FROM_TRIGGER:
                 // if plate has reached resting position
-                if (transform.position.y >= startY)
+                if (transform.localPosition.y >= startY)
                 {
                     currentMoveDir = MoveDir.STAY_PUT;
-                    Vector3 cp = transform.position;
+                    Vector3 cp = transform.localPosition;
                     cp.y = startY;
-                    transform.position = cp;
+                    transform.localPosition = cp;
                 }
                 else
                 // if plate has not yet reached resting position
                 {
-                    Vector3 cp = transform.position;
+                    Vector3 cp = transform.localPosition;
                     transform.Translate(Vector3.up * Time.fixedDeltaTime * distancePerSecond);
                 }
                 break;
