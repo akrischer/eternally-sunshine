@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour {
 
@@ -9,16 +10,18 @@ public class LevelManager : MonoBehaviour {
     private AllLevels allLevels;
 
     [SerializeField]
-    private Level currentLevel;
-
-    [SerializeField]
     List<string> scenesInBuild = new List<string>();
+
+    UnityEvent levelLoaded = new UnityEvent();
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
         allLevels = GetAllLevels();
-
-        currentLevel = GetCurrentLevel();
 
         // load all scenes available
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -29,6 +32,16 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
+    public void AcceptLevelLoadedEvent(UnityAction action)
+    {
+        levelLoaded.AddListener(action);
+    }
+
+    public void RemoveLevelLoadedEvent(UnityAction action)
+    {
+        levelLoaded.AddListener(action);
+    }
+
     public void CompleteQuitGame()
     {
         Debug.Log("QUITTING GAME");
@@ -37,7 +50,7 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadSceneAsync(GetNextLevel().Name);
+        LoadLevel(GetNextLevel().Name);
     }
 
     public void LoadLevel(string levelName)
@@ -45,6 +58,7 @@ public class LevelManager : MonoBehaviour {
         if (scenesInBuild.Contains(levelName))
         {
             SceneManager.LoadSceneAsync(allLevels.GetLevelByName(levelName).Name);
+            levelLoaded.Invoke();
         }
         else
         {
@@ -52,9 +66,14 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-	private Level GetNextLevel()
+	public Level GetNextLevel()
     {
-        return allLevels.GetLevelAfter(currentLevel);
+        return allLevels.GetLevelAfter(GetCurrentLevel());
+    }
+
+    public int GetLevelIndex(Level level)
+    {
+        return allLevels.GetLevelIndex(level);
     }
 
     private AllLevels GetAllLevels()
@@ -65,7 +84,7 @@ public class LevelManager : MonoBehaviour {
         return loadedAllLevels;
     }
 
-    private Level GetCurrentLevel()
+    internal Level GetCurrentLevel()
     {
         return allLevels.GetLevelByName(SceneManager.GetActiveScene().name);
     }
@@ -128,6 +147,11 @@ public class LevelManager : MonoBehaviour {
         public Level GetLevelByName(string name)
         {
             return levels.Where(l => name.Equals(l.Name)).First();
+        }
+
+        public int GetLevelIndex(Level level)
+        {
+            return levels.IndexOf(level);
         }
     }
     #endregion
