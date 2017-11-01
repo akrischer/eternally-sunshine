@@ -13,6 +13,7 @@ TagManager:
   - MM_Start
   - MM_Quit
   - GameWorld
+  - InAudio Manager
   layers:
   - Default
   - TransparentFX

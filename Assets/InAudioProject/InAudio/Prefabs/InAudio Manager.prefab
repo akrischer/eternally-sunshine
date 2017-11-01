@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 11400014}
   m_Layer: 0
   m_Name: InAudio Manager
-  m_TagString: Untagged
+  m_TagString: InAudio Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.06618705
   m_Pitch: 1
   Loop: 0
   Mute: 0

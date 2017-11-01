@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114070567835168510}
   - component: {fileID: 114232409524418172}
   - component: {fileID: 114818193399027386}
+  - component: {fileID: 114422369964730214}
   m_Layer: 0
   m_Name: InAudio EventSave
   m_TagString: Untagged
@@ -132,6 +133,27 @@ MonoBehaviour:
   FoldedOut: 1
   Filtered: 0
   PlacedExternaly: 0
+--- !u!114 &114422369964730214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089218905557872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fb8619466d2bf4f9d98fe437396317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 0
+  _eventActionType: 18
+  From: {fileID: 0}
+  To: {fileID: 0}
+  Duration: 0
+  TweenType: 4
+  DoAtEndFrom: 3
+  DoAtEndTo: 3
+  FromVolumeTarget: 1
+  ToVolumeTarget: 1
 --- !u!114 &114779145585708818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,7 +193,8 @@ MonoBehaviour:
   _parent: {fileID: 114232409524418172}
   Delay: 0
   _children: []
-  _actionList: []
+  _actionList:
+  - {fileID: 114422369964730214}
   FoldedOut: 1
   Filtered: 0
   PlacedExternaly: 0

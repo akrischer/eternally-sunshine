@@ -13,4 +13,5 @@ public class Tags {
     public static readonly string MAIN_MENU_START = "MM_Start";
     public static readonly string MAIN_MENU_QUIT = "MM_Quit";
     public static readonly string GAME_WORLD = "GameWorld";
+    public static readonly string INAUDIO_MANAGER = "InAudio Manager";
 }
