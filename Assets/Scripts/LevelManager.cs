@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour {
@@ -12,7 +13,9 @@ public class LevelManager : MonoBehaviour {
     [SerializeField]
     List<string> scenesInBuild = new List<string>();
 
-    UnityEvent levelLoaded = new UnityEvent();
+    LevelLoadedEvent levelLoaded = new LevelLoadedEvent();
+
+    private bool isLoading = false;
 
     void Awake()
     {
@@ -32,12 +35,12 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-    public void AcceptLevelLoadedEvent(UnityAction action)
+    public void AcceptLevelLoadedEvent(UnityAction<Level> action)
     {
         levelLoaded.AddListener(action);
     }
 
-    public void RemoveLevelLoadedEvent(UnityAction action)
+    public void RemoveLevelLoadedEvent(UnityAction<Level> action)
     {
         levelLoaded.AddListener(action);
     }
@@ -55,15 +58,24 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadLevel(string levelName)
     {
-        if (scenesInBuild.Contains(levelName))
+        if (scenesInBuild.Contains(levelName) && !isLoading)
         {
-            SceneManager.LoadSceneAsync(allLevels.GetLevelByName(levelName).Name);
-            levelLoaded.Invoke();
+            StartCoroutine(_LoadLevel(levelName));
         }
-        else
+        else if (!isLoading)
         {
             Debug.LogError("Cannot load level '" + levelName + "'. No level found with that name.");
         }
+    }
+
+    private IEnumerator _LoadLevel(string levelName)
+    {
+        isLoading = true;
+        Level currentLevel = GetCurrentLevel();
+        AsyncOperation async = SceneManager.LoadSceneAsync(allLevels.GetLevelByName(levelName).Name);
+        yield return async;
+        isLoading = false;
+        levelLoaded.Invoke(currentLevel);
     }
 
 	public Level GetNextLevel()
@@ -89,6 +101,12 @@ public class LevelManager : MonoBehaviour {
         return allLevels.GetLevelByName(SceneManager.GetActiveScene().name);
     }
 
+    #region Level Loaded Event
+    public class LevelLoadedEvent : UnityEvent<Level>
+    {
+
+    }
+    #endregion
     #region JSON Serialization
     [System.Serializable]
     public class Level

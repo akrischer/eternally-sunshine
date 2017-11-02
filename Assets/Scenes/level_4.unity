@@ -593,6 +593,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 868453199}
+--- !u!1 &868453201 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012948054868, guid: ae7ee8d2a90aee641b7a82bce0b069cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 868453198}
 --- !u!114 &868453202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,6 +656,17 @@ MonoBehaviour:
   vector3Arrays: []
   transformArrays: []
   paths: []
+--- !u!114 &868453204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868453201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1a8407b85d50b49b5499dd3f255fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &906355125
 GameObject:
   m_ObjectHideFlags: 0

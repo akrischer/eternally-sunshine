@@ -238,7 +238,7 @@ MonoBehaviour:
   ScrollPosition: {x: 0, y: 0}
   _children: []
   _parent: {fileID: 114711298929462206}
-  runtimeVolume: 0.6
+  runtimeVolume: 0.088
   runtimePitch: 1
   runtimeSolo: 0
   runtimeMute: 0

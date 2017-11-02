@@ -19,7 +19,10 @@ public class AudioManager : MonoBehaviour {
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag(Tags.LEVEL_MANAGER).GetComponent<LevelManager>();
-        levelManager.AcceptLevelLoadedEvent(TriggerBGMEvent);
+
+        levelManager.AcceptLevelLoadedEvent(TriggerBGMEvent); // Transition BGM, if needed
+        levelManager.AcceptLevelLoadedEvent(AddThisLevelsListener); // give InAudio each level's listener
+
         inAudioManager = GameObject.FindGameObjectWithTag(Tags.INAUDIO_MANAGER).GetComponent<InAudio>();
         StartMusicForGameLaunch();
     }
@@ -30,10 +33,10 @@ public class AudioManager : MonoBehaviour {
         InAudio.Music.PlayWithFadeIn(mainMenuMusic, mainMenuMusic.Volume, 3f);
     }
 
-    void TriggerBGMEvent()
+    void TriggerBGMEvent(LevelManager.Level previousLevel)
     {
-        // technically this triggers BEFORE the level is loaded :\
-        int nextLevelIndex = levelManager.GetLevelIndex(levelManager.GetNextLevel());
+        int currentLevelIndex = levelManager.GetLevelIndex(levelManager.GetCurrentLevel());
+        int previousLevelIndex = levelManager.GetLevelIndex(previousLevel);
         /*InAudioEvent audioEvent = backgroundMusicAudioEvents[audioEventIndex];
         if (audioEvent != null)
         {
@@ -43,15 +46,15 @@ public class AudioManager : MonoBehaviour {
         {
             Debug.LogError("No background music audio event found for level '" + levelManager.GetNextLevel().Name + "'", gameObject);
         }*/
-        InMusicGroup thisLevelBGM = backgroundMusic[nextLevelIndex - 1];
-        InMusicGroup nextLevelBGM = backgroundMusic[nextLevelIndex];
+        InMusicGroup previousLevelBGM = backgroundMusic[previousLevelIndex];
+        InMusicGroup currentLevelBGM = backgroundMusic[currentLevelIndex];
         //InAudio.Music.CrossfadePlayStop(thisLevelBGM, nextLevelBGM, 5);
 
         // don't do any transition if their IDs are the same
-        if (thisLevelBGM._ID != nextLevelBGM._ID)
+        if (previousLevelBGM._ID != currentLevelBGM._ID)
         {
-            InAudio.Music.FadeAndStop(thisLevelBGM, 1.5f);
-            InAudio.Music.PlayWithFadeIn(nextLevelBGM, nextLevelBGM.Volume, 3f);
+            InAudio.Music.FadeAndStop(previousLevelBGM, 1.5f);
+            InAudio.Music.PlayWithFadeIn(currentLevelBGM, currentLevelBGM.Volume, 3f);
         }
     }
 
@@ -60,5 +63,15 @@ public class AudioManager : MonoBehaviour {
         return level.Name + "_BGM";
     }
 
+    /// <summary>
+    /// Every scene load, the InAudio's active listener is destroyed (bc it's the main camera). So we reset it on every load.
+    /// </summary>
+    private void AddThisLevelsListener(LevelManager.Level previousLevel)
+    {
+        if (inAudioManager.activeAudioListener == null)
+        {
+            inAudioManager.activeAudioListener = Camera.main.GetComponent<AudioListener>();
+        }
+    }
 
 }

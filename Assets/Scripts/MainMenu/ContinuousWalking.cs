@@ -8,7 +8,7 @@ public class ContinuousWalking : MonoBehaviour {
 
     public enum Direction
     {
-        FORWARD, BACK
+        FORWARD, BACK, RIGHT, LEFT
     }
 
     public Direction walkDirection = Direction.FORWARD;
@@ -42,6 +42,10 @@ public class ContinuousWalking : MonoBehaviour {
                 return Vector3.forward;
             case Direction.BACK:
                 return Vector3.back;
+            case Direction.RIGHT:
+                return Vector3.right;
+            case Direction.LEFT:
+                return Vector3.left;
             default:
                 return Vector3.zero;
         }

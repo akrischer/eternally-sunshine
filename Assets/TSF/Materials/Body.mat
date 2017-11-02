@@ -10,67 +10,36 @@ Material:
   m_Shader: {fileID: 4800000, guid: 76374158b4c4e5744b394e9290aae693, type: 3}
   m_ShaderKeywords: _COLOR_ON _OUTL_ON
   m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
+    - _MainTex:
         m_Texture: {fileID: 2800000, guid: 4e2f32e9a1fefc24092337ae061f3dbc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ToonShade
-      second:
+    - _ToonShade:
         m_Texture: {fileID: 2800000, guid: a7a5f2c16dd774776bf1d9d82cb24bb9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _Asym
-      second: 0
-    - first:
-        name: _Brightness
-      second: 1.14
-    - first:
-        name: _Cull
-      second: 2
-    - first:
-        name: _Cutoff
-      second: 0.5
-    - first:
-        name: _DS
-      second: 0
-    - first:
-        name: _DetailTex
-      second: 0
-    - first:
-        name: _Outl
-      second: 1
-    - first:
-        name: _Outline
-      second: 4
-    - first:
-        name: _TintColor
-      second: 1
-    - first:
-        name: _TrOp
-      second: 0
-    - first:
-        name: _Trans
-      second: 0
-    - first:
-        name: _VertexColor
-      second: 0
+    - _Asym: 0
+    - _Brightness: 1.14
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DS: 0
+    - _DetailTex: 0
+    - _Outl: 1
+    - _Outline: 4
+    - _TintColor: 1
+    - _TrOp: 0
+    - _Trans: 0
+    - _VertexColor: 0
     m_Colors:
-    - first:
-        name: _Asymmetry
-      second: {r: 0, g: 0.25, b: 0.5, a: 0}
-    - first:
-        name: _Color
-      second: {r: 0.975, g: 0.1131, b: 0.1131, a: 1}
-    - first:
-        name: _OutlineColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+    - _Asymmetry: {r: 0, g: 0.25, b: 0.5, a: 0}
+    - _Color: {r: 0.975, g: 0.1131, b: 0.1131, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

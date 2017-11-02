@@ -52,6 +52,5 @@ public class MenuInputManager : MonoBehaviour {
                 inputLockoutTimer.StartTimer();
             }
         }
-
     }
 }

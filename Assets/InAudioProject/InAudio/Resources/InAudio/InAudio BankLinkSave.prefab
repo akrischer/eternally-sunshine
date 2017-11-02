@@ -58,7 +58,52 @@ MonoBehaviour:
   _parent: {fileID: 114730103150612434}
   _children: []
   _autoLoad: 1
-  _bankData: []
+  _bankData:
+  - AudioNode: {fileID: 114947450106612652, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114855917692235118, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114868744862165902, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114562645503671336, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114091999101852286, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114637273514654062, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114554668187467598, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114347392804814320, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114675512078490246, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 0}
+    MusicNode: {fileID: 114336104620626444, guid: 13efca515458e0f459b57773cafc903c,
+      type: 2}
+  - AudioNode: {fileID: 0}
+    MusicNode: {fileID: 114894460890901800, guid: 13efca515458e0f459b57773cafc903c,
+      type: 2}
+  - AudioNode: {fileID: 114984407953788194, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114699211001769120, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114410060890803722, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114804605516941940, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
   FoldedOut: 1
   Filtered: 0
 --- !u!114 &114730103150612434

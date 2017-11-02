@@ -10,7 +10,6 @@ public class PlayerColorManager : MonoBehaviour {
     [SerializeField]
     Color defaultColor;
 
-    [SerializeField]
     GameObject playerModelBody;
     Renderer playerRenderer;
 
@@ -77,7 +76,6 @@ public class PlayerColorManager : MonoBehaviour {
             .Aggregate((prod, next) => AdditivelyBlendColors(prod, next));
         } else
         {
-            Debug.LogWarning("CalculatePlayerColor - default", this);
             return defaultColor;
         }
 

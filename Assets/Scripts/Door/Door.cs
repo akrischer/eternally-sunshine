@@ -39,6 +39,7 @@ public class Door : MonoBehaviour {
             yield return new WaitForFixedUpdate();
         }
         transform.localPosition = openPos;
+        AudioSFX.PlaySFX(AudioSFX.SFX.DOOR_OPENED_SFX);
         isMovementLocked = false;
     }
 

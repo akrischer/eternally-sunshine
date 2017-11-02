@@ -14,6 +14,8 @@ TagManager:
   - MM_Quit
   - GameWorld
   - InAudio Manager
+  - My Audio Manager
+  - MM_LevelSelect
   layers:
   - Default
   - TransparentFX
@@ -51,6 +53,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: UI
     uniqueID: 1974657141
     locked: 0
