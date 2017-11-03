@@ -8,11 +8,23 @@ public class SpotlightLightManager : MonoBehaviour {
     private GameObject spotlightWallObj;
     private Light light;
     private Renderer spotlightWallObjRenderer;
+    private Spotlight spotlight;
+
+    [SerializeField]
+    private bool isOn = true;
+    public bool IsOn
+    {
+        get
+        {
+            return isOn;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
         light = GetComponent<Light>();
         light.type = LightType.Spot;
+        spotlight = GetComponentInParent<Spotlight>();
 
         foreach (Transform child in transform.parent)
         {
@@ -26,6 +38,14 @@ public class SpotlightLightManager : MonoBehaviour {
         spotlightWallObjRenderer = spotlightWallObj.GetComponent<Renderer>();
         Color spotlightAlbedo = spotlightWallObjRenderer.material.color;
         SetSpotlightColor(spotlightAlbedo);
+
+        if (IsOn)
+        {
+            TurnOn();
+        } else
+        {
+            TurnOff();
+        }
 	}
 	
 	// Update is called once per frame
@@ -49,5 +69,19 @@ public class SpotlightLightManager : MonoBehaviour {
     void SetSpotlightColor(Color color)
     {
         light.color = color;
+    }
+
+    void TurnOn()
+    {
+        isOn = true;
+        light.enabled = true;
+        spotlight.TurnOn();
+    }
+
+     void TurnOff()
+    {
+        isOn = false;
+        light.enabled = false;
+        spotlight.TurnOff();
     }
 }

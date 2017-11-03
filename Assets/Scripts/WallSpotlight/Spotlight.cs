@@ -15,12 +15,14 @@ public class Spotlight : MonoBehaviour {
     private ColoredLight coloredLight;
     private PlayerColorManager playerColorManager;
 
+    private bool isOn = true;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
         coloredLight = new ColoredLight(lightColor, GetSpotlightColor());
         playerColorManager = GameObject.FindWithTag(Tags.PLAYER_COLOR_MANAGER).GetComponent<PlayerColorManager>();
-        layerMask = LayerMask.GetMask("Spotlight Interactive Surface");
+        layerMask = LayerMask.GetMask("Spotlight Interactive Surface", "Default");
     }
 
 	void FixedUpdate()
@@ -28,6 +30,11 @@ public class Spotlight : MonoBehaviour {
         if (DebugManager.DebugModeOn)
         {
             DrawCircleAroundPlayer();
+        }
+
+        if (!isOn)
+        {
+            return;
         }
 
         transform.LookAt(player.transform.position + new Vector3(0, raycastVertOffset, 0));
@@ -107,5 +114,15 @@ public class Spotlight : MonoBehaviour {
             }
         }
         return Color.white;
+    }
+
+    public void TurnOn()
+    {
+        isOn = true;
+    }
+
+    public void TurnOff()
+    {
+        isOn = false;
     }
 }
