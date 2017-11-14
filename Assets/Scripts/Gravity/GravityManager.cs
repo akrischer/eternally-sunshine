@@ -74,6 +74,8 @@ public class GravityManager : MonoBehaviour
                 rotationStack.Push(GravityDirection.Z);
                 break;
         }
+
+        AudioSFX.PlaySFX(AudioSFX.SFX.TEST_GRAVITY_CHANGE);
     }
 
     private void UndoGravityRotations()

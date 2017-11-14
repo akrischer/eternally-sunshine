@@ -23,7 +23,8 @@ public class AudioSFX : MonoBehaviour
     public enum SFX
     {
         DOOR_OPENED_SFX,
-        TEST_WALKING_FOOTSTEP
+        TEST_WALKING_FOOTSTEP,
+        TEST_GRAVITY_CHANGE
     }
 
     void Awake()

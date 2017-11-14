@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114364875910142842}
   - component: {fileID: 114265662934500602}
   - component: {fileID: 114336104620626444}
+  - component: {fileID: 114758713808011200}
   m_Layer: 0
   m_Name: InAudio MusicSave
   m_TagString: Untagged
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: 105373958
-  _name: Level2
+  _name: Level6
   _type: 1
   _overrideParentMixerGroup: 0
   _mixerGroup: {fileID: 0}
@@ -169,7 +170,8 @@ MonoBehaviour:
   Filtered: 0
   FoldedOut: 1
   ScrollPosition: {x: 0, y: 0}
-  _children: []
+  _children:
+  - {fileID: 114758713808011200}
   _parent: {fileID: 114086094145140748}
   runtimeVolume: 1
   runtimePitch: 1
@@ -215,6 +217,39 @@ MonoBehaviour:
   _externalPlacement: 0
   _bankLink: {fileID: 114210627250815956, guid: 42ae25f145009df48a0b6729167f25b6,
     type: 2}
+--- !u!114 &114758713808011200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569205109896388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d726591de3f2f5c4580160d2378446e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 203792160
+  _name: Level6
+  _type: 2
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 0.6
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 0
+  ScrollPosition: {x: 0, y: 0}
+  _children: []
+  _parent: {fileID: 114364875910142842}
+  runtimeVolume: 0.6
+  runtimePitch: 1
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _loop: 1
+  _autoStart: 0
+  _clips:
+  - {fileID: 8300000, guid: 7bbf792d7504c7948af151454429ce37, type: 3}
 --- !u!114 &114894460890901800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,7 +273,7 @@ MonoBehaviour:
   ScrollPosition: {x: 0, y: 0}
   _children: []
   _parent: {fileID: 114711298929462206}
-  runtimeVolume: 0.088
+  runtimeVolume: 0.6
   runtimePitch: 1
   runtimeSolo: 0
   runtimeMute: 0

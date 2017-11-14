@@ -104,6 +104,9 @@ MonoBehaviour:
   - AudioNode: {fileID: 114804605516941940, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
       type: 2}
     MusicNode: {fileID: 0}
+  - AudioNode: {fileID: 114846731013060994, guid: 175c4c9ac70dbcc469e6e205f237a1f1,
+      type: 2}
+    MusicNode: {fileID: 0}
   FoldedOut: 1
   Filtered: 0
 --- !u!114 &114730103150612434
