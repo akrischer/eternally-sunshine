@@ -1,0 +1,17 @@
+[title=1_start]
+Today I woke up and I felt trapped.
+My alarm was telling me it was 8, but my body didn't agree.
+That's been happening a lot lately.
+...
+How do I get out of here?
+[title=1_end]
+
+[title=casket_start]
+Here lies Ethan's hopes and dreams...
+...
+I've been watching too much Fight Club.
+[title=casket_end]
+
+[title=door_open_start]
+Hmmm...
+[title=door_open_end]

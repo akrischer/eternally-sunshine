@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 [AddComponentMenu("Seize Studios/RPGTalk/RPGTalk Area")]
 public class RPGTalkArea : MonoBehaviour {
@@ -88,11 +89,25 @@ public class RPGTalkArea : MonoBehaviour {
 	/// </summary>
 	public PlayableDirector timelineDirectorToPlay;
 
+    /// <summary>
+    /// Callbacks that we will called RIGHT before a talk is started
+    /// </summary>
+    public UnityEngine.Events.UnityEvent beforeNewTalk = new UnityEngine.Events.UnityEvent();
+
+    private ThirdPersonUserControl _playerController;
+
+    public void AddBeforeNewTalk(UnityEngine.Events.UnityAction action)
+    {
+        beforeNewTalk.AddListener(action);
+    }
+
 	/// <summary>
 	/// Hide anything that shouldn't be showing upon the start
 	/// </summary>
 	protected virtual void Start () {
 		HideInteractionInstruction ();
+        _playerController = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<ThirdPersonUserControl>();
+        AddBeforeNewTalk(_playerController.DisablePlayerInput);
 	}
 	
 	/// <summary>
@@ -201,7 +216,7 @@ public class RPGTalkArea : MonoBehaviour {
 			NewTalk ();
 		}
 		if (timelineDirectorToPlay != null) {
-			timelineDirectorToPlay.Play ();
+            timelineDirectorToPlay.Play ();
 		}
 	}
 

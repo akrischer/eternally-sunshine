@@ -7,6 +7,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
+        private bool canAcceptInput = true;
         private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
@@ -32,12 +33,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character = GetComponent<ThirdPersonCharacter>();
         }
 
+        public void EnablePlayerInput()
+        {
+            canAcceptInput = true;
+        }
+
+        public void DisablePlayerInput()
+        {
+            canAcceptInput = false;
+        }
+
 
         private void Update()
         {
-            if (!m_Jump)
+            if (!m_Jump && canAcceptInput)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Joystick_A");
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Joystick_Y");
             }
         }
 
@@ -45,12 +56,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
+            
+
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             _h = h;
             _v = v;
             bool crouch = Input.GetKey(KeyCode.C);
+
+            if (!canAcceptInput)
+            {
+                _h = h = 0;
+                _v = v = 0;
+                crouch = false;
+            }
 
             // calculate move direction to pass to character
             if (m_Cam != null)
@@ -68,7 +88,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             //}
 #if !MOBILE_INPUT
 			// walk speed multiplier
-	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
+	        if (Input.GetKey(KeyCode.LeftShift) && canAcceptInput) m_Move *= 0.5f;
 #endif
 
             // pass all parameters to the character control script
