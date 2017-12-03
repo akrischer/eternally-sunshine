@@ -1,0 +1,20 @@
+[title=5_start]
+My mind is a rollercoaster and I never want to jump off.
+It feels so good to do another lap, sing another song, and write another track.
+But I need to ride this for as long as I can, before it ends again.
+[title=5_end]
+
+[title=crates_start]
+When I was 6, I remember helping Grampa out on the docks.
+He and I were the only ones in our family that enjoyed getting up so early,
+and for so long...
+My favorite part was the smell of a freshly opened crate of packed fish.
+He called it "cologne of the working man."
+I haven't been back there since before he died.
+[title=crates_end]
+
+[title=fire_start]
+This[speed=2]...[/speed] this looks like where I wrote my very first song.
+All I had was a guitar, a 30 rack of beer, and some good friends.
+The song sucked, but I'll never forget how happy I felt that night.
+[title=fire_end]

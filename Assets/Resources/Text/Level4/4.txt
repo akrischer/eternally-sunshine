@@ -1,0 +1,25 @@
+[title=4_start]
+I met this adorable kid today.
+I was waiting for a crosswalk and I felt this tap on my left arm.
+She looked at me with a snaggletooth smile and said, "You look like a Power Ranger!"
+[speed=2]...[/speed]
+I admit, that made me chuckle.
+[title=4_end]
+
+[title=barriers_start]
+"Some barriers are hard to see"[speed=2]...[/speed]
+Um, OK?
+[title=barriers_end]
+
+[title=barriers_moved_start]
+..and some barriers are easily removed!
+[title=barriers_moved_end]
+
+[title=4_1_start]
+What an odd place this is..
+[title=4_1_end]
+
+[title=bridge_moved_start]
+Not sure how I feel about these lights[speed=2]...[/speed]
+I miss my parents, I want to go <b>home</b>.
+[title=bridge_moved_end]

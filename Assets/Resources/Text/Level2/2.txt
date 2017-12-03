@@ -1,0 +1,16 @@
+[title=2_start]
+This morning I went to class and my head hurt.
+I love the people here, but I just feel terrible when I'm around them.
+...
+I guess I should find a way out.
+[title=2_end]
+
+[title=after_button_trigger_start]
+This spotlight feels nice in the cold air.
+But why's it gotta keep following me?
+[title=after_button_trigger_end]
+
+[title=lightpad_start]
+Looks like a glass or metallic surface of some sort.
+Feels cold, like sitting on a metal bench.
+[title=lightpad_end]
