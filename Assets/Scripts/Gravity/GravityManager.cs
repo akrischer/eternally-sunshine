@@ -17,7 +17,7 @@ public class GravityManager : MonoBehaviour
     GameObject gameWorld;
     private static GravityDirection currentGravityDirection = GravityDirection.Y;
     [SerializeField]
-    private static Vector3 mCamScaleVector_X = new Vector3(-1,0,1), mCamScaleVector_Y = new Vector3(1, 0, 1), mCamScaleVector_Z = new Vector3(1, 0, -1);
+    public static Vector3 mCamScaleVector_X = new Vector3(-1, 1, 0), mCamScaleVector_Y = new Vector3(1, 0, 1), mCamScaleVector_Z = new Vector3(1, 0, -1);
     private static Vector3 gameWorldEulerAngles_X = new Vector3(0,0,-90), gameWorldEulerAngles_Y = new Vector3(0, 0, 0), gameWorldEulerAngles_Z = new Vector3(90, 0, 0);
     public static Vector3 mCamScaleVector
     {

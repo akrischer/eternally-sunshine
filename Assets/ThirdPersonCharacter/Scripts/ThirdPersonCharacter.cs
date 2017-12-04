@@ -50,6 +50,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// turn amount and forward amount required to head in the desired
 			// direction.
 			if (move.magnitude > 1f) move.Normalize();
+            if (move.magnitude > .2f)
+
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
