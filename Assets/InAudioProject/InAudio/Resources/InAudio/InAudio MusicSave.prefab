@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114265662934500602}
   - component: {fileID: 114336104620626444}
   - component: {fileID: 114758713808011200}
+  - component: {fileID: 114742190573291370}
+  - component: {fileID: 114701977611169036}
   m_Layer: 0
   m_Name: InAudio MusicSave
   m_TagString: Untagged
@@ -71,6 +73,7 @@ MonoBehaviour:
   - {fileID: 114265662934500602}
   - {fileID: 114711298929462206}
   - {fileID: 114364875910142842}
+  - {fileID: 114742190573291370}
   _parent: {fileID: 0}
   runtimeVolume: 1
   runtimePitch: 1
@@ -183,6 +186,39 @@ MonoBehaviour:
   _externalPlacement: 0
   _bankLink: {fileID: 114210627250815956, guid: 42ae25f145009df48a0b6729167f25b6,
     type: 2}
+--- !u!114 &114701977611169036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569205109896388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d726591de3f2f5c4580160d2378446e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1719468599
+  _name: Credits Child
+  _type: 2
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 0.642
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 1
+  ScrollPosition: {x: 0, y: 0}
+  _children: []
+  _parent: {fileID: 114742190573291370}
+  runtimeVolume: 0
+  runtimePitch: 1
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _loop: 1
+  _autoStart: 0
+  _clips:
+  - {fileID: 8300000, guid: 0260d10963522a642a8e714e973e0c9f, type: 3}
 --- !u!114 &114711298929462206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,6 +253,40 @@ MonoBehaviour:
   _externalPlacement: 0
   _bankLink: {fileID: 114210627250815956, guid: 42ae25f145009df48a0b6729167f25b6,
     type: 2}
+--- !u!114 &114742190573291370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569205109896388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dd8bd3ebb3dc04c98cd0fb8f35eedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guid: 1345188903
+  _name: Credits
+  _type: 1
+  _overrideParentMixerGroup: 0
+  _mixerGroup: {fileID: 0}
+  _minVolume: 1
+  _minPitch: 1
+  Filtered: 0
+  FoldedOut: 1
+  ScrollPosition: {x: 0, y: 0}
+  _children:
+  - {fileID: 114701977611169036}
+  _parent: {fileID: 114086094145140748}
+  runtimeVolume: 1
+  runtimePitch: 1
+  runtimeSolo: 0
+  runtimeMute: 0
+  _solo: 0
+  _mute: 0
+  _overrideParentBank: 0
+  _externalPlacement: 0
+  _bankLink: {fileID: 114210627250815956, guid: 42ae25f145009df48a0b6729167f25b6,
+    type: 2}
 --- !u!114 &114758713808011200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +306,7 @@ MonoBehaviour:
   _minVolume: 0.6
   _minPitch: 1
   Filtered: 0
-  FoldedOut: 0
+  FoldedOut: 1
   ScrollPosition: {x: 0, y: 0}
   _children: []
   _parent: {fileID: 114364875910142842}

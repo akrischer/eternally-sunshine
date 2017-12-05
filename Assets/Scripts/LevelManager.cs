@@ -17,9 +17,21 @@ public class LevelManager : MonoBehaviour {
 
     private bool isLoading = false;
 
+    public UnityEngine.UI.Button referenceButton;
+
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DDOLChecker ddolChecker = DDOLChecker.Instance;
+        if (this == ddolChecker.levelManager)
+        {
+            if (GameObject.FindGameObjectsWithTag(Tags.LEVEL_MANAGER).Length > 1)
+            {
+                Destroy(gameObject);
+            } else
+            {
+                DontDestroyOnLoad(gameObject);
+            }
+        }   
     }
 
     void Start()
@@ -32,6 +44,14 @@ public class LevelManager : MonoBehaviour {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
             int lastSlash = scenePath.LastIndexOf("/");
             scenesInBuild.Add(scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1));
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Start") && GetCurrentLevel().Name != "main_menu")
+        {
+            LoadLevel("main_menu");
         }
     }
 

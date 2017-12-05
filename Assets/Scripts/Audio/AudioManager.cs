@@ -13,7 +13,15 @@ public class AudioManager : MonoBehaviour {
 
 	void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DDOLChecker ddolChecker = DDOLChecker.Instance;
+        if (this != ddolChecker.myAudioManager)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Start()
@@ -27,7 +35,7 @@ public class AudioManager : MonoBehaviour {
         StartMusicForGameLaunch();
     }
 
-    void StartMusicForGameLaunch()
+    internal void StartMusicForGameLaunch()
     {
         InMusicGroup mainMenuMusic = backgroundMusic[0];
         InAudio.Music.PlayWithFadeIn(mainMenuMusic, mainMenuMusic.Volume, 3f);
