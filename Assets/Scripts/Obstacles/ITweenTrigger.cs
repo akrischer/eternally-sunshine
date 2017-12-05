@@ -29,6 +29,18 @@ public class ITweenTrigger : MonoBehaviour {
         }
     }
 
+    public void TriggerITweenByName(string eventId)
+    {
+        iTweenEvent e = iTweenEvent.GetEvent(gameObject, eventId);
+        if (e != null)
+        {
+            e.Play();
+        } else
+        {
+            Debug.LogWarning("No iTween event id found with the name, '" + eventId + "'", gameObject);
+        }
+    }
+
     private void TriggerEvent(string eventId)
     {
         iTweenEvent e = iTweenEvent.GetEvent(gameObject, eventId);

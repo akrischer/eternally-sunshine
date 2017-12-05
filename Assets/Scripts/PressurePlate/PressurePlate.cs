@@ -162,6 +162,7 @@ public class PressurePlate : MonoBehaviour {
             if (isRepeatable)
             {
                 currentMoveDir = MoveDir.AWAY_FROM_TRIGGER;
+                hasFired = false;
             } else
             {
                 currentMoveDir = MoveDir.STAY_PUT;

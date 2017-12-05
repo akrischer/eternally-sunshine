@@ -75,11 +75,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // calculate move direction to pass to character
             if (m_Cam != null)
             {
-                // calculate camera relative direction to move:
-                if (v + h > .5)
-                {
-                    Debug.Log("");
-                }
                 m_CamForward = Vector3.Scale(m_Cam.forward, GravityManager.mCamScaleVector).normalized;
                 m_Move = v * m_CamForward + h * m_Cam.right;
                 m_Move = Vector3.ProjectOnPlane(m_Move, Vector3.up);
