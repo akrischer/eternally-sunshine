@@ -16,4 +16,6 @@ public class Tags {
     public static readonly string GAME_WORLD = "GameWorld";
     public static readonly string INAUDIO_MANAGER = "InAudio Manager";
     public static readonly string MY_AUDIO_MANAGER = "My Audio Manager";
+    public static readonly string CAMERA_MANAGER = "CameraManager";
+    public static readonly string LEVEL_SELECT_CANVAS = "LevelSelectCanvas";
 }

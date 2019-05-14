@@ -16,6 +16,8 @@ TagManager:
   - InAudio Manager
   - My Audio Manager
   - MM_LevelSelect
+  - CameraManager
+  - LevelSelectCanvas
   layers:
   - Default
   - TransparentFX
