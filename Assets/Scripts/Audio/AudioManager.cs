@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour {
     LevelManager levelManager;
     InAudio inAudioManager;
 
+    private float storedVolume = 1f;
+
 	void Awake()
     {
         DDOLChecker ddolChecker = DDOLChecker.Instance;
@@ -33,6 +35,20 @@ public class AudioManager : MonoBehaviour {
 
         inAudioManager = GameObject.FindGameObjectWithTag(Tags.INAUDIO_MANAGER).GetComponent<InAudio>();
         StartMusicForGameLaunch();
+        MuteAudio(); // only for web version
+    }
+
+    public void MuteAudio()
+    {
+        if (AudioListener.volume == 0f)
+        {
+            AudioListener.volume = storedVolume;
+            storedVolume = 0f;
+        } else
+        {
+            storedVolume = AudioListener.volume;
+            AudioListener.volume = 0f;
+        }
     }
 
     internal void StartMusicForGameLaunch()
