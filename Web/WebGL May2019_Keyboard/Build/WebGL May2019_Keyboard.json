@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Eternally Sunshine",
+"dataUrl": "WebGL May2019_Keyboard.data.unityweb",
+"asmCodeUrl": "WebGL May2019_Keyboard.asm.code.unityweb",
+"asmMemoryUrl": "WebGL May2019_Keyboard.asm.memory.unityweb",
+"asmFrameworkUrl": "WebGL May2019_Keyboard.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
